@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Phrases</title>
+    <style>
+        .hidden-phrase {
+            display: none;
+            white-space: pre;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <h1>Escanea todos los codigos QR para conseguir la frase secreta</h1>
+    </div>
+    <div class="flex-container">
+
+        <input type="text" id="input1" placeholder="Contraseña 1">
+        <div class="hidden-phrase" id="phrase1">Espacio </div>
+
+        <input type="text" id="input2" placeholder="Contraseña 2">
+        <div class="hidden-phrase" id="phrase2">Empuja. </div>
+
+        <input type="text" id="input3" placeholder="Contraseña 3">
+        <div class="hidden-phrase" id="phrase3">"Empujando el </div>
+
+        <input type="text" id="input4" placeholder="Contraseña 4">
+        <div class="hidden-phrase" id="phrase4">espacio".</div>
+
+        <!-- Repeat similar input and phrase elements for the remaining 3 phrases -->
+    </div>
+
+    <script>
+        const phrases = {
+            'input1': 'aa',
+            'input2': 'bb',
+            'input3': 'cc',
+            'input4': 'dd',
+            // Add the other input IDs and corresponding passwords here
+        };
+
+        Object.keys(phrases).forEach(inputId => {
+            const inputElement = document.getElementById(inputId);
+            const phraseElement = document.getElementById(`phrase${inputId.slice(-1)}`);
+
+            inputElement.addEventListener('input', () => {
+                if (inputElement.value === phrases[inputId]) {
+                    inputElement.style.display = 'none';
+                    phraseElement.style.display = 'block';
+                } else {
+                    inputElement.style.display = 'block';
+                    phraseElement.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
