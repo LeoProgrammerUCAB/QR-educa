@@ -25,17 +25,7 @@
     font-size: 2em;
     font-family: disketFont;
     margin: -1px;
-
-    /* display: none; */
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 2s linear;
-}
-
-.hidden-phrase:hover {
-    /* display: block; */
-    visibility: visible;
-    opacity: 1;
+    display: none;
 }
 
 .flex-container {

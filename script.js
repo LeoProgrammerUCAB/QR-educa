@@ -13,14 +13,7 @@ Object.keys(phrases).forEach(inputId => {
     inputElement.addEventListener('input', () => {
         if (inputElement.value.trim().toLowerCase() === phrases[inputId]) {
             inputElement.style.display = 'none';
-            transisitionToVisible(phraseElement);
+            phraseElement.style.display = 'block';
         }
     });
 });
-
-
-//change display from none to block but with visibility hidden and transition to visible
-function transisitionToVisible(element) {
-    //use class hidde-phrase.show
-    element.classList.add('show');
-}
