@@ -1,0 +1,53 @@
+@font-face {
+    font-family: disketFont;
+    src: url(./Fonts/Disket-Mono-Bold.ttf);
+}
+
+.welcome {
+    font-family: disketFont;
+    font-size: 1.2em;
+    margin: 10px;
+    color: #F8623F;
+    text-align: center;
+}
+
+.instructions {
+    font-family: disketFont;
+    font-size: 0.8em;
+    margin: 10px;
+}
+
+.hidden-phrase {
+    white-space: pre;
+    background-color: #3843D0;
+    color: white;
+    padding: 5px;
+    font-size: 2em;
+    font-family: disketFont;
+    margin: -1px;
+
+    /* display: none; */
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 2s linear;
+}
+
+.hidden-phrase:hover {
+    /* display: block; */
+    visibility: visible;
+    opacity: 1;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pretty_input {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
