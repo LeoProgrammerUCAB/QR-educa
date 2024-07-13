@@ -23,13 +23,18 @@ Object.keys(phrases).forEach((inputId) => {
       hintCount++;
     }
     if (hintCount === 5) {
-      startConfetti();
-      setTimeout(() => {
-           stopConfetti();
-      }, 5000);
+      showPrize();
     }
   });
 });
+
+function showPrize(){
+  startConfetti();
+      setTimeout(() => {
+           stopConfetti();
+      }, 5000);
+  document.querySelector(".prize-message-container").style.display = "flex";     
+}
 
 function startConfetti() {
   window.confettiful = new Confettiful(document.querySelector(".conffeti-container"));
@@ -38,6 +43,10 @@ function startConfetti() {
 function stopConfetti() {
   clearInterval(window.confettiful.confettiInterval);
   window.confettiful.containerEl.innerHTML = "";
+  //zindex -1 position absolute
+  setTimeout(() => {
+    document.querySelector("#new-confetti-container").remove();
+  }, 1000);
 }
 
 // ------- confeti animation
@@ -62,6 +71,7 @@ Confettiful.prototype._setupElements = function () {
   }
 
   containerEl.classList.add("confetti-container");
+  containerEl.id = "new-confetti-container";
 
   this.el.appendChild(containerEl);
 
@@ -92,7 +102,9 @@ Confettiful.prototype._renderConfetti = function () {
     confettiEl.style.backgroundColor = confettiBackground;
 
     confettiEl.removeTimeout = setTimeout(function () {
-      confettiEl.parentNode.removeChild(confettiEl);
+      if (confettiEl.parentNode) {
+        confettiEl.parentNode.removeChild(confettiEl);
+      }
     }, 3000);
 
     this.containerEl.appendChild(confettiEl);
